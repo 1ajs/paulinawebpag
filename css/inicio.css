@@ -22,7 +22,7 @@ img {
     max-width: 100%;
 }
 .contenedor {
-    max-width: 120rem;
+    max-width: 100rem;
     margin: 0 auto;
 }
 h1 {
@@ -81,28 +81,14 @@ h1 {
 }
 
 /* Grid de elementos */
-.grid {
+
+.items {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    gap: 10px;
+    justify-items: center; /* Centra los elementos horizontalmente */
 }
-.category {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    align-items: flex-start; /* Alinear elementos al inicio del contenedor */
-    text-align: center;
-}
-.category-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    background-color: rgb(239, 148, 233); 
-    padding: 1rem;
-    margin-right: 20px;
-    grid-column: 1; /* Comienza en la primera columna */
-    grid-row: span 2;
-}
+
 
 .category-container img {
     max-width: 100%;
@@ -127,6 +113,7 @@ h1 {
 }
 .producto_imagen {
     width: 100%;
+    max-width: 500;
 }
 .producto_nombre {
     font-size: 2rem;
@@ -158,12 +145,12 @@ h1 {
 }
 
 .slide {
-    min-width: 50%;
+    min-width: 100%; /* Se asegura que las imágenes ocupen toda la pantalla */
 }
 
 .slide img {
-    width: 50%;
-    border-radius: 10px; /* Opcional: redondear los bordes */
+    width: 100%; /* Ajusta la imagen al tamaño del contenedor */
+    border-radius: 10px;
 }
 
 button.prev, button.next {
@@ -189,20 +176,19 @@ button.next {
 
 /* Ajuste adicional para contenido principal */
 .contenedor {
-    max-width: 80%;
+    max-width: 50%;
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9; /* Fondo opcional para visualización */
     border-radius: 10px; /* Opcional: redondear los bordes */
 }
 @media (max-width: 768px) {
-    .category {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, auto);
-        justify-items: center; /* Centrar elementos horizontalmente */
-        align-items: center; /* Centrar elementos verticalmente */
-        text-align: center;
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
+
     .category img {
         width: 100px; /* Tamaño de imagen ajustado */
         margin-bottom: 10px; /* Margen inferior reducido */
