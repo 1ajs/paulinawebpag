@@ -2,7 +2,7 @@ html {
     box-sizing: border-box;
     font-size: 62.5%;
 }
-*, *:before, *:after {
+*, *::before, *::after {
     box-sizing: inherit;
 }
 body {
@@ -10,20 +10,8 @@ body {
     font-size: 1.6rem;
     font-family: 'Dancing Script', cursive;
     line-height: 1.5;
-}
-p {
-    font-size: 1.8rem;
-    color: white;
-}
-a {
-    text-decoration: none;
-}
-img {
-    max-width: 100%;
-}
-.contenedor {
-    max-width: 100rem;
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
 }
 h1 {
     font-size: 2rem;
@@ -31,13 +19,32 @@ h1 {
     color: rgb(238, 92, 141);
 }
 
+p {
+    font-size: 1.8rem;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.contenedor {
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
 /* Header */
 .header {
     display: flex;
     justify-content: center;
-}
-.header_logo {
-    margin: 3rem 0;
+    align-items: center;
+    padding: 2rem 0;
 }
 
 /* Navegación */
@@ -45,21 +52,18 @@ h1 {
     background-color: rgb(250, 38, 109);
     padding: 1rem 0;
     display: flex;
-    justify-content: space-evenly;
-}
-@media (max-width: 300px) {
-    .navegacion {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 .navegacion_enlace {
     color: white;
-    font-size: 3rem;
+    font-size: 2.5rem;
+    padding: 1rem;
+    text-align: center;
 }
 .navegacion_enlace:hover {
-    color: white;
+    color: #fff;
+    background-color: rgba(225, 81, 186, 0.2);
 }
 
 /* Footer */
@@ -67,38 +71,16 @@ h1 {
     background-color: rgb(255, 170, 239);
     padding: 1rem 0;
     margin-top: 2rem;
-}
-.footer-texto {
     text-align: center;
     font-size: 1.5rem;
-}
-.follow-texto {
-    text-align: left;
-    font-size: 1.5rem;
-}
-.social-icons {
-    text-align: center;
 }
 
 /* Grid de elementos */
-
 .items {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 10px;
-    justify-items: center; /* Centra los elementos horizontalmente */
-}
-
-
-.category-container img {
-    max-width: 100%;
-    height: auto; /* Para mantener la proporción de la imagen */
-}
-
-.items {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    justify-items: center;
 }
 .item {
     background-color: #eaeaea;
@@ -106,24 +88,22 @@ h1 {
     text-align: center;
 }
 
-/* Estilos específicos para la sección de productos */
+/* Estilos específicos para productos */
 .Producto {
     background-color: rgb(243, 140, 196);
     padding: 1rem;
+    text-align: center;
+    border-radius: 10px;
+    max-width: 300px;
 }
 .producto_imagen {
     width: 100%;
-    max-width: 500;
+    max-width: 500px;
+    border-radius: 10px;
 }
 .producto_nombre {
     font-size: 2rem;
     margin: 1rem 0;
-    text-align: center;
-}
-.producto_precio {
-    font-size: 1.5rem;
-    margin: 1rem 0;
-    text-align: center;
 }
 
 /* Slider */
@@ -133,26 +113,22 @@ h1 {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin: 20px auto; /* Añadir margen superior e inferior */
-    max-width: 80%; /* Limitar el ancho del slider */
-    border: 2px solid #ccc; /* Opcional: añadir un borde para visualización */
-    border-radius: 10px; /* Opcional: redondear los bordes */
+    margin: 20px auto;
+    max-width: 90%;
+    border: 2px solid #ccc;
+    border-radius: 10px;
 }
-
 .slides {
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
-
 .slide {
-    min-width: 100%; /* Se asegura que las imágenes ocupen toda la pantalla */
+    min-width: 100%;
 }
-
 .slide img {
-    width: 100%; /* Ajusta la imagen al tamaño del contenedor */
+    width: 100%;
     border-radius: 10px;
 }
-
 button.prev, button.next {
     position: absolute;
     top: 50%;
@@ -162,38 +138,28 @@ button.prev, button.next {
     border: none;
     padding: 1rem;
     cursor: pointer;
-    border-radius: 50%; /* Opcional: hacer los botones redondos */
-    z-index: 10; /* Asegurarse de que los botones estén por encima de otros elementos */
+    border-radius: 50%;
+    z-index: 10;
 }
-
 button.prev {
     left: 10px;
 }
-
 button.next {
     right: 10px;
 }
 
-/* Ajuste adicional para contenido principal */
-.contenedor {
-    max-width: 50%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9; /* Fondo opcional para visualización */
-    border-radius: 10px; /* Opcional: redondear los bordes */
-}
+/* Responsivo */
 @media (max-width: 768px) {
-    img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .category img {
-        width: 100px; /* Tamaño de imagen ajustado */
-        margin-bottom: 10px; /* Margen inferior reducido */
-    }
     .items {
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas en lugar de tres */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .items {
+        grid-template-columns: 1fr;
+    }
+    .navegacion {
+        flex-direction: column;
+        text-align: center;
     }
 }
